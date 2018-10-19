@@ -1,0 +1,31 @@
+{
+    "name": "larangular/support",
+    "description": "description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simon Diaz",
+            "email": "sdiaz.sz@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "7.*",
+        "illuminate/support": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Larangular\\Support\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Larangular\\Support\\ServiceProvider"
+            ],
+            "aliases": {
+                "MigrationPackage": "Larangular\\Support\\Facade"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
