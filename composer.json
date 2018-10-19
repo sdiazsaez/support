@@ -14,17 +14,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Larangular\\Support\\": "src/"
+            "Larangular\\Support\\": "./src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Larangular\\Support\\ServiceProvider"
-            ],
-            "aliases": {
-                "MigrationPackage": "Larangular\\Support\\Facade"
-            }
+                "Larangular\\Support\\SupportServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev"
