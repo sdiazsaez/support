@@ -20,6 +20,7 @@ class SupportServiceProvider extends ServiceProvider
     public function boot()
     {
         include_once __DIR__ . '/helpers.php';
+
     }
 
     /**
@@ -29,6 +30,14 @@ class SupportServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton('Instance', function () {
+            return new Instance();
+        });
+    }
 
+    public function provides() {
+        return [
+            'Instance'
+        ];
     }
 }

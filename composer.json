@@ -21,7 +21,10 @@
         "laravel": {
             "providers": [
                 "Larangular\\Support\\SupportServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Instance": "Larangular\\Support\\Facades\\Instance"
+            }
         }
     },
     "minimum-stability": "dev"
