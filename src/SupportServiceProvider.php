@@ -9,18 +9,17 @@
 namespace Larangular\Support;
 
 use Illuminate\Support\ServiceProvider;
+use Larangular\Support\Instance\Complies;
 
-class SupportServiceProvider extends ServiceProvider
-{
+class SupportServiceProvider extends ServiceProvider {
+
     /**
      * Bootstrap the application services.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         include_once __DIR__ . '/helpers.php';
-
     }
 
     /**
@@ -28,16 +27,16 @@ class SupportServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         $this->app->singleton('Instance', function () {
-            return new Instance();
+            return new Complies();
         });
+
     }
 
     public function provides() {
         return [
-            'Instance'
+            'Instance',
         ];
     }
 }

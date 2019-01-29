@@ -8,18 +8,20 @@
 
 namespace Larangular\Support;
 
+use Larangular\Support\Facades\Instance as CompliesFacade;
+
 class Instance {
 
-    public function hasTrait($instance, $trait){
-        return (in_array($trait, class_uses($instance)));
+    public static function hasTrait($instance, $trait){
+        return CompliesFacade::hasTrait($instance, $trait);
     }
 
-    public function hasInterface($instance, $interface) {
-        return ($instance instanceof $interface);
+    public static function hasInterface($instance, $interface) {
+        return CompliesFacade::hasInterface($instance, $interface);
     }
 
-    public function instanceOf($instance, $type) {
-        return ($instance instanceof $type);
+    public static function instanceOf($instance, $type) {
+        return CompliesFacade::instanceOf($instance, $type);
     }
 
 }
