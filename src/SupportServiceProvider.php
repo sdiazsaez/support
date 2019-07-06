@@ -1,17 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: simon
- * Date: 3/24/18
- * Time: 21:41
- */
 
 namespace Larangular\Support;
 
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use Larangular\Support\Instance\Complies;
+use Larangular\Support\Path\Path;
 
-class SupportServiceProvider extends ServiceProvider {
+class SupportServiceProvider extends ServiceProvider implements DeferrableProvider {
 
     /**
      * Bootstrap the application services.
@@ -28,15 +24,20 @@ class SupportServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app->singleton('Instance', function () {
+        $this->app->singleton('Instance', static function () {
             return new Complies();
+        });
+
+        $this->app->singleton(Path::class, static function () {
+            return new Path;
         });
 
     }
 
-    public function provides() {
+    public function provides(): array {
         return [
             'Instance',
+            Path::class
         ];
     }
 }
